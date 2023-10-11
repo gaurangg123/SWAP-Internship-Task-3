@@ -1,0 +1,348 @@
+<div class="container-scroller">
+  <div class="main-panel">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <owl-carousel-o [options]="customOptions">
+            <ng-template
+              carouselSlide
+              *ngFor="let x of allNews; index as i"
+              class="owl-carousel owl-theme"
+              id="main-banner-carousel"
+            >
+              <div class="item">
+                <div class="carousel-content-wrapper mb-2">
+                  <div class="carousel-content">
+                    <div
+                      class="carousel-image forOwl"
+                      [style.background-image]="'url(' + newsImg[i] + ')'"
+                    >
+                      <!-- <img src={{imagesNew[i]}} alt="" class="w-100"  /> -->
+                      <h1 class="font-weight-bold carousel_title">
+                        {{ x.title }}
+                      </h1>
+                      <h5 class="font-weight-normal carousel_content m-0">
+                        {{ x.news_content }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+        <br />
+        <img
+          style="float: left; margin: 0px 0px 0px 0px"
+          src="/assets/images/dashboard/banner2.jpg"
+          width="770"
+        />
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="py-3 border-bottom">
+                <div class="d-flex align-items-center pb-2">
+                  <img
+                    src="/assets/new_images/homepage/ecg.jpeg"
+                    alt="No Image"
+                    class="img-xs img-rounded mr-2"
+                    alt="thumb"
+                  />
+                  <span class="fs-12 text-muted">ECG</span>
+                </div>
+                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                  Heart's electrical activity recorded with electrodes placed on
+                  body.
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="py-3 border-bottom">
+                <div class="d-flex align-items-center pb-2">
+                  <img
+                    src="/assets/new_images/homepage/xray.jpeg"
+                    alt="No Image"
+                    class="img-xs img-rounded mr-2"
+                    alt="thumb"
+                  />
+                  <span class="fs-12 text-muted">X-Ray</span>
+                </div>
+                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                  Imaging technique using electromagnetic radiation to visualize
+                  internal structures.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="pt-3 pb-4 border-bottom">
+                <div class="d-flex align-items-center pb-2">
+                  <img
+                    src="/assets/new_images/homepage/tsh.jpg"
+                    alt="No Image"
+                    class="img-xs img-rounded mr-2"
+                    alt="thumb"
+                  />
+                  <span class="fs-12 text-muted">TSH</span>
+                </div>
+                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                  Thyroid-Stimulating Hormone that controls thyroid gland and
+                  metabolism.
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="pt-3 pb-4 border-bottom">
+                <div class="d-flex align-items-center pb-2">
+                  <img
+                    src="/assets/new_images/homepage/ctscan.jpg"
+                    alt="No Image"
+                    class="img-xs img-rounded mr-2"
+                    alt="thumb"
+                  />
+                  <span class="fs-12 text-muted">Ct-Scan</span>
+                </div>
+                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                  X-ray imaging technique producing cross-sectional images of
+                  the body.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="pt-3 pb-4">
+                <div class="d-flex align-items-center pb-2">
+                  <img
+                    src="/assets/new_images/homepage/cbc.jpg"
+                    alt="No Image"
+                    class="img-xs img-rounded mr-2"
+                    alt="thumb"
+                  />
+                  <span class="fs-12 text-muted">CBC</span>
+                </div>
+                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                  Blood test measuring various blood components.
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="pt-3 pb-4">
+                <div class="d-flex align-items-center pb-2">
+                  <img
+                    src="/assets/new_images/homepage/diet.jpg"
+                    alt="No Image"
+                    class="img-xs img-rounded mr-2"
+                    alt="thumb"
+                  />
+                  <span class="fs-12 text-muted">Balanced Diet</span>
+                </div>
+                <p class="fs-14 m-0 font-weight-medium line-height-sm">
+                  Nutritionally diverse and well-rounded eating.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div class="world-news">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex position-relative float-left">
+              <h3 class="section-title">The Doctors</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+            <div class="position-relative image-hover">
+              <div class="image-wrapper">
+                <img src="/assets/new_images/homepage/msurgeon.jpg" alt="world-news" />
+                <span class="thumb-title">Surgeon</span>
+              </div>
+            </div>
+            <h5 class="font-weight-bold mt-3">Dr. Phoenix</h5>
+            <p class="fs-15 font-weight-normal">
+              A surgeon is a medical professional who specializes in performing
+              surgical procedures to treat injuries, diseases, and deformities
+              in patients.
+            </p>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-5 mb-sm-2">
+            <div class="position-relative image-hover">
+              <div class="image-wrapper">
+                <img
+                  src="assets/new_images/homepage/fcardiologist.jpg"
+                  class="img-fluid"
+                  alt="world-news"
+                />
+                <span class="thumb-title">Cardiologist</span>
+              </div>
+            </div>
+            <h5 class="font-weight-bold mt-3">Dr. Viper</h5>
+            <p class="fs-15 font-weight-normal">
+              A cardiologist is a medical professional who specializes in the
+              diagnosis, treatment, and prevention of conditions related to the
+              heart and blood vessels.
+            </p>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-5 mb-sm-2">
+            <div class="position-relative image-hover">
+              <div class="image-wrapper">
+                <img
+                  src="assets/new_images/homepage/smedicine.jpg"
+                  class="img-fluid"
+                  alt="world-news"
+                />
+                <span class="thumb-title">Medicine</span>
+              </div>
+            </div>
+            <h5 class="font-weight-bold mt-3">Dr. Harbor</h5>
+            <p class="fs-15 font-weight-normal">
+              A doctor of osteopathic medicine (DO) is a physician licensed to
+              practice medicine, perform surgery and prescribe medication.
+            </p>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-5 mb-sm-2">
+            <div class="position-relative image-hover">
+              <div class="image-wrapper">
+                <img
+                  src="assets/new_images/homepage/fpediatrician.jpg"
+                  class="img-fluid"
+                  alt="world-news"
+                />
+                <span class="thumb-title">Pediatrician</span>
+              </div>
+            </div>
+            <h5 class="font-weight-bold mt-3">Dr. Reyna</h5>
+            <p class="fs-15 font-weight-normal">
+              They provide general medical care, growth and development, and
+              tracks immunizations for infants, children, adolescents, and young
+              adults.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="editors-news">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="d-flex position-relative float-left">
+              <h3 class="section-title">Short Articles</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-sm-2">
+            <div class="position-relative image-hover">
+              <div class="image-wrapper1">
+                <img
+                  src="/assets/images/dashboard/news3.jpg"
+                  class="img-fluid"
+                  alt="world-news"
+                />
+                <span class="thumb-title">Tips</span>
+              </div>
+            </div>
+            <h1 class="font-weight-600 mt-3">COVID-19 Safety Precautions</h1>
+            <p class="fs-16 font-weight-normal">
+              => The best way to prevent and slow down transmission is to be
+              well informed about the disease and how the virus spreads.
+              <br />
+              <br />
+              => Protect yourself and others from infection by staying at least
+              1 metre apart from others.
+              <br />
+              <br />
+              => Wearing a properly fitted mask, and washing your hands or using
+              an alcohol-based rub frequently.
+              <br />
+              <br />
+              => Get vaccinated when it's your turn and follow local guidance.
+            </p>
+          </div>
+          <div class="col-lg-6 mb-5 mb-sm-2">
+            <div class="row">
+              <div class="col-sm-6 mb-5 mb-sm-2">
+                <div class="position-relative image-hover">
+                  <div class="image-wrapper2">
+                    <img src="assets/new_images/homepage/scovid.jpg"
+                    class="img-fluid"
+                    alt="world-news"
+                    />
+                    <span class="thumb-title">Sleep</span>
+                  </div>
+                </div>
+                <h5 class="font-weight-600 mt-3">
+                  7 Hours of sleep is mandatory.
+                </h5>
+                <p class="fs-15 font-weight-normal">
+                  Always take enough sleep and make sure to maintain your sleep
+                  cycle everyday.
+                </p>
+              </div>
+              <div class="col-sm-6 mb-5 mb-sm-2">
+                <div class="position-relative image-hover">
+                  <div class="image-wrapper2">
+                    <img
+                    src="assets/new_images/homepage/diet.jpg"
+                    class="img-fluid"
+                    alt="world-news"
+                    />
+                    <span class="thumb-title">Balanced Diet</span>
+                  </div>
+                </div>
+                <h5 class="font-weight-600 mt-3">Good Source of Food.</h5>
+                <p class="fs-15 font-weight-normal">
+                  A diet includes foods from the following like
+                  fruits, vegetables, dairy, grains, and protein..
+                </p>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-6 mb-5 mb-sm-2">
+                <div class="position-relative image-hover">
+                  <div class="image-wrapper2">
+                    <img
+                    src="assets/new_images/homepage/shop.jpeg"
+                    class="img-fluid"
+                    alt="world-news"
+                    />
+                    <span class="thumb-title">Helpline</span>
+                  </div>
+                </div>
+                <h5 class="font-weight-600 mt-3">Rahul Medicals</h5>
+                <p class="fs-15 font-weight-normal">
+                  Navlakha, Indore
+                  <br />
+                  Phn. No. <b>78945-12345</b>
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <div class="position-relative image-hover">
+                  <div class="image-wrapper2">
+                    <img
+                    src="assets/new_images/homepage/ambulance.jpg"
+                    class="img-fluid"
+                    alt="world-news"
+                    />
+                    <span class="thumb-title">Helpline</span>
+                  </div>
+                </div>
+                <h5 class="font-weight-600 mt-3">Ambulance Numbers</h5>
+                <p class="fs-15 font-weight-normal">
+                  Number 1 = <b>12345-67890</b>
+                  <br />
+                  Number 2 = <b>98765-43210</b>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

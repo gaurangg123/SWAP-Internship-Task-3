@@ -1,0 +1,200 @@
+<div class="single-news">
+    <div class="container">
+        <div class="row mt-0">
+
+            <div class="col-lg-9"
+                *ngIf="allData?.category_name === 'NEWS' || allData?.category_name === 'Business' || allData?.category_name === 'Product'; else forOtherCategory">
+                <div class="sn-container mb-5">
+                    <h1 class="sn-title mb-3"
+                        style="word-break: break-word;font-size:22px;width: 91%;text-align:justify">{{ allData?.title }}
+                    </h1>
+                    <!-- <div class="sn-img" *ngIf="allData?.category_name === 'Videos'; else imageCard">
+                        <video width="320" height="425" controls class="card-img card-img-top">
+                            <source [src]="loadImage(allData?.video_file[0]?.src)">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div> -->
+                    <!-- <ng-template #imageCard> -->
+                    <div class="sn-img">
+                        <img [src]='loadImage(allData?.news_image[0]?.src)' alt="individual content"
+                            class="img-fluid img-fullwidth mb-3" />
+                    </div>
+                    <!-- </ng-template> -->
+                    <!-- <div *ngIf="allData?.category_name === 'Videos'; else content">
+                        <div class="sn-content" [innerHTML]="allData?.description"></div>
+                    </div>
+                    <ng-template #content> -->
+                    <div class="sn-content" [innerHTML]="allData?.news_content"></div>
+                    <!-- </ng-template> -->
+                    <video width="320" height="425" controls class="card-img card-img-top"
+                        *ngIf="allData?.news_video[0]?.src" style="width: 91%;;">
+                        <source [src]="loadImage(allData?.news_video[0]?.src)">
+                        Your browser does not support the video tag.
+                    </video>
+
+
+                    <div class="font-weight-600 fs-15 mt-4" *ngIf="allData?.news_file[0]?.src">
+                        <a [href]="loadImage(allData?.news_file[0]?.src)" target="_blank">
+                            <i class="{{getFileExtension(allData?.news_file[0]?.orgName)}}" style=" font-size: x-large;"
+                                aria-hidden="true"></i>
+                            {{allData?.news_file[0]?.orgName}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <ng-template #forOtherCategory>
+                <div class="col-lg-9">
+                    <div class="sn-container mb-5">
+                        <h1 class="sn-title mb-3">{{ allData?.title }}</h1>
+                        <div *ngIf="allData?.category_name !== 'Videos'; else videoCategory">
+                            <div *ngIf="getFileExtension(allData?.news_video[0]?.orgName) !== ''; else openVideo;">
+                                <ngx-doc-viewer [url]="loadImage(allData?.news_video[0]?.src)" viewer="office"
+                                    style="width:100%;height:80vh;"></ngx-doc-viewer>
+                            </div>
+                            <ng-template #openVideo>
+                                <video width="320" height="425"  controls class="card-img card-img-top"
+                                    *ngIf="allData?.news_video[0]?.src" style="width:91%; border: 1px solid;">
+                                    <source [src]="loadImage(allData?.news_video[0]?.src)">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <br><br>
+                                &nbsp;
+                                <div style="text-align:center"  *ngIf="this.iframre">
+                                    <iframe *ngIf= "allData.pdfurl" [src]="Url" width="595" height="485"
+                                        frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+                                        style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;"
+                                        allowfullscreen> 
+                                    </iframe>
+                                </div>
+                                
+                                <!-- <iframe [src]=  width="595" height="485"></iframe>    -->
+                            </ng-template>
+                        </div>
+                        <ng-template #videoCategory>
+                            <video width="320" height="425" controls class="card-img card-img-top">
+                                <source [src]="loadImage(allData?.video_file[0]?.src)">
+                                Your browser does not support the video tag.
+                            </video>
+                        </ng-template>
+                    </div>
+                </div>
+            </ng-template>
+
+            <div class="col-lg-3 mt-0">
+                <div class="sidebar" *ngIf="allData?.category_name !== 'Videos'; else sidebarCard">
+                    <div class="sidebar-widget" *ngIf="allCatData">
+                        <h2 class="">In this category</h2>
+                        <div class="news-list">
+                            <div class="nl-item" *ngFor="let catData of allCatData">
+                                <div class="nl-img mr-3"
+                                    *ngIf="catData?.news_image[0]?.src != allData?.news_image[0]?.src">
+                                    <img [src]="loadImage(catData?.news_image[0]?.src)" />
+                                </div>
+                                <!-- <div class="nl-title">
+                                   <div *ngIf="catData?.name?.split(' ')[0] === 'External'">
+                                        <a href="{{ catData?.link }}" target="_blank" data-bs-toggle="tooltip" title="{{ catData?.title }}">{{ catData?.title | ellipsify : 50 }}</a>
+                                    </div>
+                                    <div *ngIf="catData?.name?.split(' ')[0] !== 'External'">
+                                        <a [routerLink]="['/individual-internal/', catData?._id, catData?.name?.split(' ')[1]]" data-bs-toggle="tooltip" title="{{ catData?.title }}">{{ catData?.title | ellipsify : 50 }}</a>
+                                    </div>
+                                </div> -->
+
+                                <div class="d-flex flex-column"
+                                    *ngIf="catData?.news_image[0]?.src != allData?.news_image[0]?.src">
+                                    <div *ngIf="catData?.name?.split(' ')[0] === 'External'">
+                                        <a href="{{ catData?.link }}" target="_blank" style="color: #3a3a3a;"
+                                            data-bs-toggle="tooltip" title="{{ catData?.title }}">
+                                            <p class="content-size mb-0">{{ catData?.title | ellipsify : 90 }}</p>
+                                        </a>
+                                    </div>
+                                    <div *ngIf="catData?.name?.split(' ')[0] === 'Internal'">
+                                        <a [routerLink]="['/individual-internal/', catData?._id, catData?.category_name]"
+                                            style="color: #3a3a3a;" data-bs-toggle="tooltip"
+                                            title="{{ catData?.title }}">
+                                            <p class="content-size mb-0">{{ catData?.title | ellipsify : 90 }}</p>
+                                        </a>
+                                    </div>
+
+                                    <div *ngIf="catData?.name?.split(' ')[0] === 'Externalll'" class="mt-auto">
+                                        <div *ngIf="catData?.logo_link !== ''; else withNoLink8"
+                                            data-bs-toggle="tooltip" title="{{ catData?.logo_title }}" style="margin-left:-10px">
+                                            <a href="{{ catData?.logo_link }}"
+                                                class="badge badge-light fs-12 font-weight-bold" target="_blank">
+                                                <img *ngIf="catData?.logo_image?.length !== 0"
+                                                    [src]="loadImage(catData?.logo_image[0]?.src)" alt="logo image"
+                                                    class="img-fluid logo-img" />
+                                                <span>&nbsp;&nbsp;{{ catData?.logo_title | ellipsify : 20 }}</span>
+                                            </a>
+                                        </div>
+                                        <ng-template #withNoLink8>
+                                            <div class="badge badge-light fs-12 font-weight-bold"
+                                                data-bs-toggle="tooltip" title="{{ catData?.logo_title }}"style="margin-left:-10px">
+                                                <img *ngIf="catData?.logo_image?.length !== 0"
+                                                    [src]="loadImage(catData?.logo_image[0]?.src)" alt="logo image"
+                                                    class="img-fluid logo-img" />
+                                                <span>&nbsp;&nbsp;{{ catData?.logo_title | ellipsify : 20 }}</span>
+                                            </div>
+                                        </ng-template>
+                                    </div>
+                                    <div *ngIf="catData?.name?.split(' ')[0] !== 'External' "
+                                        class="mt-auto">
+                                        
+                                        <div>
+                                            <div class="badge badge-light fs-12 font-weight-bold"
+                                                data-bs-toggle="tooltip" title="{{ catData?.advertisementTitle }}">
+                                                <a [routerLink]="['/individual-internal/', catData?._id, catData?.category_name]"
+                                            style="color: #3a3a3a;" data-bs-toggle="tooltip"
+                                            title="{{ catData?.title }}">
+                                                <img *ngIf="catData?.advertisementLogo?.length !== 0"
+                                                    [src]="loadImage(catData?.advertisementLogo[0]?.src)"
+                                                    alt="logo image" class="img-fluid logo-img" />
+                                                <span *ngIf="catData?.advertisementTitle">&nbsp;&nbsp;{{
+                                                    catData?.advertisementTitle | ellipsify : 20 }}</span>
+                                            </a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget" *ngIf="allSubcat">
+                                <h2 class="">More categories</h2>
+                                <div class="category">
+                                    <ul>
+                                        <li *ngFor="let subcat of allSubcat">
+                                            <!-- <i class="fa fa-arrow-right mr-2" aria-hidden="true"></i> -->
+                                            <a
+                                                [routerLink]="['/category-internal/', allData?.category_name?.toLowerCase(), subcat]">{{
+                                                subcat | titlecase }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-template #sidebarCard>
+                    <div class="sidebar">
+                        <div class="sidebar-widget">
+                            <div class="news-list">
+                                <div class="sidebar-widget" *ngIf="allSubcat">
+                                    <h2 class="">More Categories</h2>
+                                    <div class="category">
+                                        <ul>
+                                            <li *ngFor="let subcat of allSubcat">
+                                                <!-- <i class="fa fa-arrow-right mr-2" aria-hidden="true"></i> -->
+                                                <a
+                                                    [routerLink]="['/category-internal/', allData?.category_name?.toLowerCase(), subcat]">{{
+                                                    subcat | titlecase }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+        </div>
+    </div>
+</div>

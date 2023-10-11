@@ -1,0 +1,195 @@
+<div *ngIf="catDetail?.category_name === 'Videos'; else imageCard">
+  <div class="card" *ngIf="catDetail?.name?.split(' ')[0] === 'Internal'; else vdoExternal">
+    <video controls class="card-img-top">
+      <source [src]="loadImage(catDetail?.video_file[0]?.src)">
+      Your browser does not support the video tag.
+    </video>
+    <div class="card-body">
+      <!-- <div *ngIf="catDetail?.name?.split(' ')[0] !== 'External'"> -->
+        <a [routerLink]="['/individual-internal/', catDetail?._id, catDetail?.name]" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{ catDetail?.title }}">
+          <h5 class="content-size mb-0">
+            {{ catDetail?.title | ellipsify : 90 }}
+          </h5>
+        </a>
+      <!-- </div> -->
+    </div>
+  </div>
+  <ng-template #vdoExternal>
+    <div class="card">
+      <a href="{{ catDetail?.link }}" target="_blank">
+        <img 
+          [src]="loadImage(catDetail?.news_image[0]?.src)" 
+          class="card-img-top" 
+          [alt]="111"
+        />
+      </a>
+      <div class="card-body">
+        <a href="{{ catDetail?.link }}" target="_blank" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{ catDetail?.title }}">
+          <h5 class="content-size mb-0">
+            {{ catDetail?.title | ellipsify : 90 }}
+          </h5>
+        </a>
+        <div class="card-bottom">
+          <div *ngIf="catDetail?.logo_link !== ''; else vdoWithNoLink" data-bs-toggle="tooltip" title="{{ catDetail?.logo_title }}">
+            <a href="{{ catDetail?.logo_link }}" class="badge badge-light">
+              <img
+                *ngIf="catDetail?.logo_image?.length !== 0"
+                [src]="loadImage(catDetail?.logo_image[0]?.src)"
+                alt="logo image"
+                class="img-fluid logo-img" 
+              />
+              <span *ngIf="catDetail?.logo_title !== ''">&nbsp;{{ catDetail?.logo_title | ellipsify : 30 }}</span>
+            </a>
+          </div>
+          <ng-template #vdoWithNoLink>
+            <div class="badge badge-light fs-12 font-weight-bold" data-bs-toggle="tooltip" title="{{ catDetail?.logo_title }}">
+              <img
+                *ngIf="catDetail?.logo_image?.length !== 0"
+                [src]="loadImage(catDetail?.logo_image[0]?.src)"
+                alt="logo image"
+                class="img-fluid logo-img"
+              />
+              <span *ngIf="catDetail?.logo_title !== ''">&nbsp;&nbsp;{{ catDetail?.logo_title | ellipsify : 30 }}</span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #imageCard>
+  <div class="card">
+    <div *ngIf="catDetail?.category_name === 'NEWS' || catDetail?.category_name === 'Business' || catDetail?.category_name === 'Product'; else forOtherCategoryImg">
+      <div *ngIf="catDetail?.name?.split(' ')[0] === 'External'">
+        <a href="{{ catDetail?.link }}" target="_blank">
+          <img 
+            [src]="loadImage(catDetail?.news_image[0]?.src)" 
+            class="card-img-top" 
+            [alt]="111"
+          />
+        </a>
+      </div>
+      <div *ngIf="catDetail?.name?.split(' ')[0] !== 'External'">
+        <a [routerLink]="['/individual-internal/', catDetail?._id, catDetail?.name?.split(' ')[1]]">
+          <img 
+            [src]="loadImage(catDetail?.news_image[0]?.src)" 
+            class="card-img-top" 
+            [alt]="111"
+          />
+        </a>
+      </div>
+    </div>
+    <ng-template #forOtherCategoryImg>
+      <div *ngIf="catDetail?.name?.split(' ')[0] === 'External'">
+        <a href="{{ catDetail?.link }}" target="_blank">
+          <img 
+            [src]="loadImage(catDetail?.news_image[0]?.src)" 
+            class="card-img-top" 
+            [alt]="111"
+          />
+        </a>
+      </div>
+      <div *ngIf="catDetail?.name?.split(' ')[0] !== 'External'">
+        <div *ngIf="getFileExtension(catDetail?.news_video[0]?.orgName) === 'pdf'; else videoInternalImg;">
+          <a [href]="loadImage(catDetail?.news_video[0]?.src)">
+            <img 
+              [src]="loadImage(catDetail?.news_image[0]?.src)" 
+              class="card-img-top" 
+              [alt]="111"
+            />
+          </a>
+        </div>
+        <ng-template #videoInternalImg>
+          <a [routerLink]="['/individual-internal/',  catDetail?._id, catDetail?.name?.split(' ')[1]]">
+            <img 
+              [src]="loadImage(catDetail?.news_image[0]?.src)" 
+              class="card-img-top" 
+              [alt]="111"
+            />
+          </a>
+        </ng-template>
+      </div>
+    </ng-template>
+
+    <div class="card-body">
+      <div *ngIf="catDetail?.category_name === 'NEWS' || catDetail?.category_name === 'Business' || catDetail?.category_name === 'Product'; else forOtherCategory">
+        <div *ngIf="catDetail?.name?.split(' ')[0] === 'External'">
+          <a href="{{ catDetail?.link }}" target="_blank" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{ catDetail?.title }}">
+            <h5 class="content-size mb-0">
+              {{ catDetail?.title | ellipsify : 90 }}
+            </h5>
+          </a>
+        </div>
+        <div *ngIf="catDetail?.name?.split(' ')[0] !== 'External'">
+          <a [routerLink]="['/individual-internal/', catDetail?._id, catDetail?.name?.split(' ')[1]]" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{ catDetail?.title }}">
+            <h5 class="content-size mb-0">
+              {{ catDetail?.title | ellipsify : 90 }}
+            </h5>
+          </a>
+        </div>
+      </div>
+      <ng-template #forOtherCategory>
+        <div *ngIf="catDetail?.name?.split(' ')[0] === 'External'">
+          <a href="{{ catDetail?.link }}" target="_blank" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{ catDetail?.title }}">
+            <h5 class="content-size mb-0">
+              {{ catDetail?.title | ellipsify : 90 }}
+            </h5>
+          </a>
+        </div>
+        <div *ngIf="catDetail?.name?.split(' ')[0] !== 'External'">
+          <div *ngIf="getFileExtension(catDetail?.news_video[0]?.orgName) === 'pdf'; else videoInternal;">
+            <a [href]="loadImage(catDetail?.news_video[0]?.src)" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{ catDetail?.title }}">
+              <h5 class="content-size mb-0">
+                {{ catDetail?.title | ellipsify : 90 }}
+              </h5>
+            </a>
+          </div>
+          <ng-template #videoInternal>
+            <a [routerLink]="['/individual-internal/',  catDetail?._id, catDetail?.name?.split(' ')[1]]" style="color: #3a3a3a;" data-bs-toggle="tooltip" title="{{  catDetail?.title }}">
+              <h5 class="content-size mb-0">
+                {{  catDetail?.title | ellipsify : 90 }}
+              </h5>
+            </a>
+          </ng-template>
+        </div>
+      </ng-template>
+
+      <div *ngIf="catDetail?.name?.split(' ')[0] === 'External'" class="card-bottom">
+        <div *ngIf="catDetail?.logo_link !== ''; else withNoLink" data-bs-toggle="tooltip" title="{{ catDetail?.logo_title }}">
+          <a href="{{ catDetail?.logo_link }}" class="badge badge-light">
+            <img
+              *ngIf="catDetail?.logo_image?.length !== 0"
+              [src]="loadImage(catDetail?.logo_image[0]?.src)"
+              alt="logo image"
+              class="img-fluid logo-img" 
+            />
+            <span>&nbsp;{{ catDetail?.logo_title | ellipsify : 30 }}</span>
+          </a>
+        </div>
+        <ng-template #withNoLink>
+          <div class="badge badge-light fs-12 font-weight-bold" data-bs-toggle="tooltip" title="{{ catDetail?.logo_title }}">
+            <img
+              *ngIf="catDetail?.logo_image?.length !== 0"
+              [src]="loadImage(catDetail?.logo_image[0]?.src)"
+              alt="logo image"
+              class="img-fluid logo-img"
+            />
+            <span>&nbsp;&nbsp;{{ catDetail?.logo_title | ellipsify : 30 }}</span>
+          </div>
+        </ng-template>
+      </div>
+      <div *ngIf="catDetail?.name === 'Internal News'" class="card-bottom">
+        <div class="badge badge-light fs-12 font-weight-bold" data-bs-toggle="tooltip" title="{{ catDetail?.advertisementTitle }}">
+          <img
+            *ngIf="catDetail?.advertisementLogo?.length !== 0"
+            [src]="loadImage(catDetail?.advertisementLogo[0]?.src)"
+            alt="logo image"
+            class="img-fluid logo-img"
+          />
+          <span *ngIf="catDetail?.advertisementTitle">&nbsp;&nbsp;{{ catDetail?.advertisementTitle | ellipsify : 30 }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

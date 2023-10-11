@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<br>
+
+<body>
+    <div class="main">
+        <div class="sign-up">
+            <div class="container">
+                <div class="signupcontent">
+                    <div class="signup-form">
+                        <h3 class="form-title">REGISTRATION FORM</h3>
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                            <figure class="image-container">
+                                <img src="/assets/new_images/loginpage/fifth.jpg" alt="registrationimage">
+                            </figure>
+                            <div class="row row-space">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="firstname" placeholder="First Name*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
+                                        <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstname.errors.required">First name is required</div>
+                                            <div *ngIf="f.firstname.errors.pattern">Please enter a valid first name
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="lastname" placeholder="Last Name*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" />
+                                        <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                            <div *ngIf="f.lastname.errors.required">Last name is required</div>
+                                            <div *ngIf="f.lastname.errors.pattern">Please enter a valid last name</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="company" placeholder="Company*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.company.errors }" />
+                                        <div *ngIf="submitted && f.company.errors" class="invalid-feedback">
+                                            <div *ngIf="f.company.errors.required">Company name is required</div>
+                                            <div *ngIf="f.company.errors.pattern">Please enter a valid company name
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="designation" placeholder="Designation*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.designation.errors }" />
+                                        <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                                            <div *ngIf="f.designation.errors.required">Designation is required</div>
+                                            <div *ngIf="f.designation.errors.pattern">Please enter a valid designation
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="city" placeholder="City*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                                        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                            <div *ngIf="f.city.errors.required">City is required</div>
+                                            <div *ngIf="f.city.errors.pattern">Please enter a valid city</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="tel" formControlName="mobile" maxlength="10" minLength="10"
+                                            placeholder="Mobile No.*" class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
+                                            (keypress)="onlyNumberKey($event)" />
+                                        <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                                            <div *ngIf="f.mobile.errors.required">Mobile number is required</div>
+                                            <div *ngIf="f.mobile.errors.pattern">Mobile number must be 10 digits</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" formControlName="email" placeholder="Email Address*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Please enter a valid email address</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="date" formControlName="date" placeholder="Date of Birth*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                                        <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                                            <div *ngIf="f.date.errors.required">Date of Birth is required</div>
+                                            <div *ngIf="f.date.errors.date">Please enter every detail</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="password" formControlName="password" placeholder="Password*"
+                                            class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+                                            <div *ngIf="f.password.errors.minlength">Password must be at least 6
+                                                characters</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="password" formControlName="confirm_password"
+                                            placeholder="Confirm Password*" class="form-control fields"
+                                            [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }" />
+                                        <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                                            <div *ngIf="f.confirm_password.errors.required">Confirm password is required
+                                            </div>
+                                            <div *ngIf="f.confirm_password.errors.mustMatch">Passwords must match</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" [value]="is_checked"
+                                    (change)="is_checked = is_checked ? false : true" type="checkbox"
+                                    name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    I agree to the pharmazeal <a [routerLink]="['/term-condition']">Terms and
+                                        Conditions</a>,
+                                    <a [routerLink]="['/privacy-policies']">Privacy Policy</a> and
+                                    <a [routerLink]="['/privacy-policies']">Disclaimer</a>.
+                                </label>
+                            </div>
+                            <div class="p-t-30">
+                                <div class="row row-space">
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn--radius btn--blue" type="submit">Sign me up!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

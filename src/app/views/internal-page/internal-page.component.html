@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="news-post-wrapper">
+          <div class="news-post-wrapper-sm ">
+            <h1 class="text-center title" >
+              {{allData.title}}
+            </h1>
+          </div>
+          <div class="image-container mt-5">
+            <img
+            src="{{renderImage(allData?.news_image[0]?.src)}}"
+            alt="news"
+            class="img-fluid1 mb-4"
+          />
+          </div>
+          
+          <div class="news-post-wrapper-sm ">
+            <p class="pt-4 pb-4 mb-4 content">
+              {{allData.news_content}}
+            </p>
+          </div>
+          <div class="row mb-5">
+            <div class="col-lg-12">
+              <div class="video_container" *ngIf="allData.news_video != ''; else elseblock">
+                <video controls
+                src={{renderVideo(allData.news_video[0]?.src)}} height="auto" width="100%"></video>
+              </div>
+              <ng-template #elseblock>
+                <div class="video_container" style="display: none;">
+                  <video controls
+                  src={{renderVideo(allData.news_video[0]?.src)}} height="auto" width="100%"></video>
+                </div>
+              </ng-template>
+              </div>
+          </div>
+          <div class="news-post-wrapper-sm mb-4">
+            <p class="font-weight-medium" *ngIf="allData.news_file != ''; else pdf_title_elseblock">
+              PDF link is Here...
+            </p>
+            <ng-template #pdf_title_elseblock>
+              <p class="font-weight-medium" style="display: none;">
+                PDF link is Here...
+              </p>
+            </ng-template>
+            <div class="bg-dark border-radius-6 px-4 py-3 mt-4 pdf_container" *ngIf="allData.news_file != ''; else pdf_elseblock">
+              <p class="text-white pdf_text">
+                <a href={{pdfLink(allData.news_file[0]?.src)}} target="_blank"><i class="fa fa-file-pdf-o pdf-icon" aria-hidden="true"></i>{{pdfLink(allData.news_file[0]?.orgName)}}</a>
+              </p>
+            </div>
+            <ng-template #pdf_elseblock>
+              <div class="bg-dark border-radius-6 px-4 py-3 mt-4 pdf_container" style="display: none;">
+                <p class="text-white pdf_text">
+                  <a href={{pdfLink(allData.news_file[0]?.src)}} target="_blank"><i class="fa fa-file-pdf-o pdf-icon" aria-hidden="true"></i>{{pdfLink(allData.news_file[0]?.orgName)}}</a>
+                </p>
+              </div>
+            </ng-template>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>

@@ -1,0 +1,140 @@
+.pill-shape {
+    border-top-left-radius: 75vh;
+    border-bottom-left-radius: 75vh;
+}
+
+.fa {
+    font-size: large;
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.buttontab{
+    background-color: #0479be;
+    color: white;
+    float: left;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+  
+
+.tabInline {
+    overflow: auto;
+    padding: 20px;
+    padding-inline-start: 47px;
+}
+
+.tablink {
+    background-color: #0479be;
+    color: white;
+    float: left;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 17px;
+    // width: 20%;
+    display: inline;
+    margin: 2px;
+}
+  
+.btn-costum-color:hover, .tablink:hover, .tablink-active {
+    background-color: #029bf3;
+}
+
+input {
+    background-color: aliceblue;
+    font-size: 0.95rem;
+}
+
+.btn-costum-color {
+    background-color: #0479be;
+}
+
+.btn-costum-color > i {
+    color: #fff;
+}
+
+// .no-gutters {
+//     background-color: aliceblue;
+// }
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+hr {
+    background-size: 4px;
+    border-top: 2px solid #008de0;
+    border-color: #008de0;
+    color: #008de0;
+    opacity: 0.4;
+}
+
+.gmp_overlay {
+    // position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    // height: 100%;
+    background-color: #fff;
+    opacity: 0.2;
+    // -webkit-filter: blur(3px);
+    // -moz-filter: blur(3px);
+    // -o-filter: blur(3px);
+    // -ms-filter: blur(3px);
+    // filter: blur(3px);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.overlay-text {
+    position: absolute;
+    left:0;
+    top: 100px;
+}
+.overlay-text > span {
+    color:#0479be;
+    text-align: center;
+    font-size:30px;
+    font-weight:bold;
+    position:relative;
+    z-index:9999;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(13px);
+    filter: blur(0px);
+}
+@media (max-width:600px) {
+    .search1{
+        margin-left: -7px !important;
+        margin-right: -7px !important;
+    }
+}
+

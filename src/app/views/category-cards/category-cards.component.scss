@@ -1,0 +1,32 @@
+.card {
+    margin-bottom: 15px;
+    min-height: 360px;
+    max-height: 450px;
+    font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif !important;
+}
+  
+.card-img-top {
+    height: 200px;
+    // object-fit: cover;
+    width: -webkit-fill-available;
+}
+  
+.btn.btn-primary {
+    position: absolute;
+    margin-bottom: 20px;
+    bottom: 0;
+}
+
+.logo-img {
+    height: 16px !important;
+    width: 16px !important;
+}
+
+.card-body {
+    flex-direction: column;
+    display: flex;
+}
+
+.card-bottom {
+    margin-top: auto;
+}

@@ -1,0 +1,131 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: linear-gradient(to right, #eeeeee, #cccccc);
+  border-radius: 2%;
+}
+
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Sign-in section */
+.sign-in {
+  margin-top: 50px;
+}
+
+.signin-content {
+  display: flex;
+  align-items: center;
+}
+
+.signin-image {
+  flex: 1;
+}
+
+.signin-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.signin-form {
+  flex: 1;
+  padding-left: 40px;
+}
+
+.form-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.register-form {
+  position: relative;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.focus-input100::before {
+  content: attr(data-placeholder);
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.form-group input:focus+.focus-input100::before {
+  top: -10px;
+  font-size: 12px;
+  color: #333;
+}
+
+.form-group :hover {
+  color: #000000;
+  background-color: rgb(174, 203, 211);
+}
+
+.form-group .alert-validate {
+  color: #f44336;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Social login section */
+.social-login {
+  margin-top: 20px;
+}
+
+.socials {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.socials a {
+  margin-right: 10px;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.socials a:hover {
+  color: #333;
+}
+
+.txt1 {
+  font-size: 14px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+</head>
+
+<body>
+	<div class="main">
+		<section class="sign-in">
+			<div class="container">
+				<div class="signin-content">
+					<div class="signin-image">
+						<figure>
+							<img src="/assets/new_images/loginpage/fourth.jpg" alt="sign up image">
+						</figure>
+					</div>
+					<div class="signin-form">
+						<h2 class="form-title">LOGIN</h2>
+						<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="register-form validate-form">
+							<div class="form-group">
+								<input type="text" name="your_name" id="your_name" formControlName="email"
+									placeholder="Your Email">
+								<span class="focus-input100"></span>
+								<div *ngIf="submitted && f.email.errors">
+									<div *ngIf="f.email.errors.required" class="alert-validate"
+										data-validate="Please enter email ID">
+									</div>
+									<div *ngIf="f.email.errors.email" class="alert-validate"
+										data-validate="Please enter a valid email ID"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="password" name="your_pass" id="your_pass" placeholder="Password"
+									formControlName="password">
+								<span class="focus-input100"></span>
+								<div *ngIf="submitted && f.password.errors">
+									<div *ngIf="f.password.errors.required" class="alert-validate"
+										data-validate="Please enter password">
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-button">
+								<input type="submit" name="signin" id="signin" class="form-submit" value="Log in">
+							</div>
+						</form>
+						<div class="social-login">
+							<ul class="socials">
+								<li>
+									<a class="txt1" [routerLink]="['/forgot-password']">Forgot Password?</a>
+								</li>
+								<li>
+									<span class="txt1">&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								</li>
+								<li>
+									<a class="txt1" [routerLink]="['/signup']">New Registration</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

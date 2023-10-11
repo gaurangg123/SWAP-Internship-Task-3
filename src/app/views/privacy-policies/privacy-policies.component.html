@@ -1,0 +1,28 @@
+<section class="page-title">
+	<!-- Container Start -->
+	<div class="container policy">
+		<div class="row">
+			<div class="col-md-8 offset-md-2 text-center">
+				
+				<h3>Privacy Policies</h3>
+			</div>
+		</div> <div *ngIf="getData?.length == 0"><br><br><br><br><br><br><br><br><br></div>
+	</div>
+	<!-- Container End -->
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row" *ngIf="getData?.length != 0">
+            <div class="col-lg-12 text-justify pl-3 pr-3">
+               <div class="terms-condition-content" *ngFor="let data of getData" >
+              
+                    <div class="sn-content" [innerHTML]="getData[0].privacy"></div>
+            
+               </div>
+            </div>
+        </div>
+
+       
+    </div>
+</section>

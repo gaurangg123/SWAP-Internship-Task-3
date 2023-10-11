@@ -1,0 +1,231 @@
+<!-- <footer>
+  <div class="footer-top mobile-space">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-sm-3 border-right" >
+
+          <div class="footer-border-bottom pb-2 mobile-space">
+            <div class="d-flex justify-content-between align-items-center" id="scroll">
+              <a [routerLink]="['/about-us']">
+                <h5 class="mb-0 font-weight-600" (click)="scroll()">About Us</h5>
+              </a>
+
+            </div>
+          </div>
+          <div class="footer-border-bottom pb-2 pt-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <a [routerLink]="['/privacy-policies']">
+                <h5 class="mb-0 font-weight-600">Privacy Policies</h5>
+              </a>
+
+            </div>
+          </div>
+          <div class="footer-border-bottom pb-2 pt-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <a [routerLink]="['/term-condition']">
+                <h5 class="mb-0 font-weight-600">Term and Condition</h5>
+              </a>
+
+            </div>
+          </div>
+          <div class="footer-border-bottom pb-2 pt-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <a [routerLink]="['/disclaimer']">
+                <h5 class="mb-0 font-weight-600">Disclaimer</h5>
+              </a>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 border-right">
+
+          <div class="footer-border-bottom pb-2 mobile-space ml--2">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 font-weight-600">Contact Us</h5>
+
+            </div>
+          </div>
+          <div class="footer-border-bottom pt-2 pb-2 ml--2">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 font-weight-600">601, Atulya IT Park, Bhawarkua Main Rd, Indore, Madhya Pradesh 452014 Phone: 094250 67545</h5>
+
+            </div>
+          </div>
+          <div class="footer-border-bottom pt-2 pb-2">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0 font-weight-600">Have a question <br> Write to us at <a href="#" > hello@pharmawire.in</a></h5>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="col-sm-3">
+
+          <a [routerLink]="'/'">
+            <img src="assets/images/FINAL LOGO.png" class="footer-logo"  alt="" />
+          </a>
+          <ul class="social-media mb-3 mt-4">
+            <li>
+              <a href="#">
+                <i class="mdi mdi-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="mdi mdi-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="mdi mdi-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="d-sm-flex justify-content-between align-items-center">
+            <div></div>
+            <div class="fs-14 font-weight-600 " style="color: #0a8d95; margin-right: 230px;">
+              © 2021 @ <a href="http://ati1855.cloudapp.net:5001/" target="_blank"> Pharma Wire</a>. All rights reserved.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+
+
+<div class="container-scroller">
+  <div class="main-panel">
+    <footer *ngIf="!isLoggedIn">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="border-top"></div>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <ul class="footer-vertical-nav">
+              <li class="menu-title"><a href="pages/news-post.html">News</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="pages/world.html">World</a></li>
+              <li><a href="pages/author.html">Magazine</a></li>
+              <li><a href="pages/business.html">Business</a></li>
+              <li><a href="pages/politics.html">Politics</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <ul class="footer-vertical-nav">
+              <li class="menu-title"><a href="pages/world.html">World</a></li>
+              <li><a href="pages/sports.html">Sports</a></li>
+              <li><a href="pages/art.html">Art</a></li>
+              <li><a href="#">Magazine</a></li>
+              <li><a href="pages/real-estate.html">Real estate</a></li>
+              <li><a href="pages/travel.html">Travel</a></li>
+              <li><a href="pages/author.html">Author</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <ul class="footer-vertical-nav">
+              <li class="menu-title"><a href="#">Features</a></li>
+              <li><a href="#">Photography</a></li>
+              <li><a href="#">Video</a></li>
+              <li><a href="pages/news-post.html">Newsletters</a></li>
+              <li><a href="#">Live Events</a></li>
+              <li><a href="#">Stores</a></li>
+              <li><a href="#">Jobs</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3 col-lg-3">
+            <ul class="footer-vertical-nav">
+              <li class="menu-title"><a href="#">More</a></li>
+              <li><a href="#">RSS</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">User Agreement</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="pages/aboutus.html">About us</a></li>
+              <li><a href="pages/contactus.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-between">
+              <img src="assets/images/newlogo1.png" class="footer-logo" alt="" id="header_logo" />
+
+              <div class="d-flex justify-content-end footer-social">
+                <h5 class="m-0 font-weight-600 mr-3 d-none d-lg-flex">Follow on</h5>
+                <ul class="social-media s-footer">
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-youtube"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-linkedin"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-twitter"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-lg-flex justify-content-center align-items-center border-top mt-5 footer-bottom">
+              <ul class="footer-horizontal-menu">
+                <li><a routerLink="term-condition">Terms&nbsp;of&nbsp;Use.</a></li>
+                <li><a routerLink="privacy-policies">Privacy&nbsp;Policy.</a></li>
+                <li><a routerLink="disclaimer">Disclaimer</a></li>
+                <li><a href="#">AdChoices.</a></li>
+                <li><a href="#">Advertise&nbsp;with&nbsp;us&nbsp;Transcripts.</a></li>
+                <li><a href="#">License.</a></li>
+                <li><a href="#">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copywrite d-flex justify-content-center">
+              <p class="font-weight-medium">
+                <a href="https://www.bootstrapdash.com/" target="_blank" class="text-dark">@ BootstrapDash</a>, Inc.All
+                Rights Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>

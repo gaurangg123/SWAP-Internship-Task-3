@@ -1,0 +1,249 @@
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-2 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> 
+                                    <img src="../../../assets/images/clipart1717870.png" height="130px" class="img-radius" alt="User-Profile-Image"> 
+                                </div>
+                                <h6 class="f-w-600">{{userInfo?.firstname + ' ' + userInfo?.lastname}}</h6>
+                                <p>{{userInfo?.desigination}}</p> 
+                                <!-- <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600 heading">My Profile</h6>
+                                <div class="row m-b-20">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">First Name</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.firstname}}</h6>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">Last Name</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.lastname}}</h6>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">Designation</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.desigination}}</h6>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">Company</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.company}}</h6>
+                                    </div>
+                                </div>
+                                <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> -->
+                                <div class="row m-b-20">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">City</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.city}}</h6>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">Email Id</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.email}}</h6>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">Mobile Number</p>
+                                        <h6 class="text-muted f-w-400">{{userInfo?.mobile}}</h6>
+                                    </div>
+                                    <!-- <div class="col-sm-3">
+                                        <p class="mb-0 f-w-600">Most Viewed</p>
+                                        <h6 class="text-muted f-w-400">Dinoter husainm</h6>
+                                    </div> -->
+                                </div>
+
+                                <div>
+                                    <button type="button" class="btn btn--blue btn-sm-block mr-sm-2" data-toggle="modal" data-target="#updateDetail">Update Details</button>
+                                    <button type="button" class="btn btn--blue btn-sm-block" data-toggle="modal" data-target="#changePsw">Change Password</button>
+                                </div>
+
+                                <div class="modal fade" id="updateDetail">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Update Details</h4>
+                                                <button type="button" class="close" #myModalClose data-dismiss="modal" (click)="getUserData()">&times;</button>
+                                            </div>
+
+                                            <form [formGroup]="updateUserForm" (ngSubmit)="onUserSubmit()">
+                                                <div class="modal-body mt-3">
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="text" 
+                                                            formControlName="firstname" 
+                                                            placeholder="First Name*" 
+                                                            class="form-control" 
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.firstname.errors }" 
+                                                            (focusout)="trimValue(this.updateUserForm.get('firstname'))"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.firstname.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.firstname.errors.required">First name is required</div>
+                                                            <div *ngIf="g.firstname.errors.pattern">Please enter valid first name</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="text" 
+                                                            formControlName="lastname" 
+                                                            placeholder="Last Name*" 
+                                                            class="form-control" 
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.lastname.errors }" 
+                                                            (focusout)="trimValue(this.updateUserForm.get('lastname'))"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.lastname.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.lastname.errors.required">Last name is required</div>
+                                                            <div *ngIf="g.lastname.errors.pattern">Please enter valid last name</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="text" 
+                                                            formControlName="company" 
+                                                            placeholder="Company*" 
+                                                            class="form-control" 
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.company.errors }" 
+                                                            (focusout)="trimValue(this.updateUserForm.get('company'))"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.company.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.company.errors.required">Company name is required</div>
+                                                            <div *ngIf="g.company.errors.pattern">Please enter valid company name</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="text" 
+                                                            formControlName="desigination" 
+                                                            placeholder="Designation*" 
+                                                            class="form-control" 
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.desigination.errors }" 
+                                                            (focusout)="trimValue(this.updateUserForm.get('desigination'))"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.desigination.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.desigination.errors.required">Designation is required</div>
+                                                            <div *ngIf="g.desigination.errors.pattern">Please enter valid designation</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="text" 
+                                                            formControlName="city" 
+                                                            placeholder="City*" 
+                                                            class="form-control" 
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.city.errors }" 
+                                                            (focusout)="trimValue(this.updateUserForm.get('city'))"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.city.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.city.errors.required">City is required</div>
+                                                            <div *ngIf="g.city.errors.pattern">Please enter valid city</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="tel" 
+                                                            formControlName="mobile" 
+                                                            placeholder="Mobile Number*" 
+                                                            class="form-control" 
+                                                            maxlength="10" minLength="10"
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.mobile.errors }"
+                                                            (keypress)="onlyNumberKey($event)"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.mobile.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.mobile.errors.required">Mobile number is required</div>
+                                                            <div *ngIf="g.mobile.errors.pattern">Mobile number must be of 10 digits</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input 
+                                                            type="text" 
+                                                            formControlName="email" 
+                                                            class="form-control" 
+                                                            style="margin-bottom: 0px;"
+                                                            placeholder="Email Address*" 
+                                                            [ngClass]="{ 'is-invalid': userSubmitted && g.email.errors }"
+                                                        />
+                                                        <div *ngIf="userSubmitted && g.email.errors" class="invalid-feedback">
+                                                            <div *ngIf="g.email.errors.required">Email is required</div>
+                                                            <div *ngIf="g.email.errors.email">Email must be a valid email address</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                                    <button type="submit" class="btn btn--blue">Submit</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="padding: 10px 31px;font-size: 14px;" (click)="getUserData()">Close</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+
+                                <div class="modal fade" id="changePsw">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Change Password</h4>
+                                                <button type="button" class="close" #myModalClose data-dismiss="modal" (click)="clearData()" >&times;</button>
+                                            </div>
+
+                                            <form [formGroup]="changePswForm" (ngSubmit)="onSubmit()">
+                                                <div class="modal-body mt-3">
+                                                    <div class="form-group">
+                                                        <!-- <label for="password1">Old password</label> -->
+                                                        <input 
+                                                            type="password" 
+                                                            class="form-control" 
+                                                            formControlName="password" 
+                                                            placeholder="Old Password" 
+                                                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                                        />
+                                                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                            <div *ngIf="f.password.errors.required">Old password is required</div>
+                                                            <div *ngIf="f.password.errors.minlength">Old password must be at least 6 characters</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <!-- <label for="password1">New password</label> -->
+                                                        <input 
+                                                            type="password" 
+                                                            class="form-control" formControlName="new_password" 
+                                                            placeholder="New Password" 
+                                                            [ngClass]="{ 'is-invalid': submitted && f.new_password.errors }"
+                                                        />
+                                                        <div *ngIf="submitted && f.new_password.errors" class="invalid-feedback">
+                                                            <div *ngIf="f.new_password.errors.required">New password is required</div>
+                                                            <div *ngIf="f.new_password.errors.minlength">New password must be at least 6 characters</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <!-- <label for="password1">Confirm new password</label> -->
+                                                        <input 
+                                                            type="password" 
+                                                            class="form-control" formControlName="confirm_password" placeholder="Confirm New Password" style="margin-bottom: 0px;" 
+                                                            [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }"
+                                                        />
+                                                        <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                                                            <div *ngIf="f.confirm_password.errors.required">Confirm new password is required</div>
+                                                            <div *ngIf="f.confirm_password.errors.mustMatch">New passwords Mmst match</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer border-top-0 d-flex justify-content-center">
+                                                    <button type="submit" class="btn btn--blue">Submit</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="padding: 10px 31px;font-size:14px;" (click)="clearData()" >Close</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

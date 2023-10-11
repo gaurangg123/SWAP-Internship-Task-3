@@ -1,0 +1,285 @@
+<!-- <header id="header">
+  <div id="bars" class="d-flex">
+    <div class="col-3 port-item ml-md-3 hidden-md hidden-sm">
+      <a class="navbar-brand" [routerLink]="'/'">
+        <img (click)="navigate()" src="assets/images/FINAL LOGO.png" alt=""  style="margin-bottom: 9px; margin-top: 38px;
+        height: 47px;"/>
+
+      </a>
+    </div>
+    <div class="col-9 port-item hidden-md hidden-sm mobile-space">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="d-flex justify-content-between myProfileDiv">
+
+          <ul class="nav ml-auto">
+
+
+              <div class="navbar-top d-flex justify-content-between align-items-center p-0" >
+                <ul class="navbar-top-right-menu ml-3 mr-5 spacing" *ngIf="!isLoggedin">
+                  <li class="nav-item mr-auto">
+                    <a [routerLink]="['/login']" class="nav-link navLink">Log In</a> <span style="color: #fff;">|</span>
+                  </li>
+                  <li class="nav-item">
+                    <a [routerLink]="['/signup']" class="nav-link navLink">Sign Up</a>
+                  </li>
+                </ul>
+                <ul *ngIf="isLoggedin" class="navbar-top-right-menu ml-3 mr-5 spacing">
+                  <li class="nav-item mr-auto">
+                    <a [routerLink]="['/user-profile']" class="nav-link navLink">My Profile<i class="mdi mdi-account-circle" style="color: #0a8d95; font-size: 22px; margin-left:3px;position: absolute;
+                      margin-top: -2px;"></i></a> <span style="color:#0a8d95;">|</span>
+                  </li>
+                  <li class="nav-item">
+                    <a (click)="logout();" style="cursor: pointer;" class="nav-link navLink">Log Out</a>
+                  </li>
+                </ul>
+              </div>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid pt-2 searchDiv" >
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="navbar-bottom mb-0 pb-0">
+            <ul
+              class="navbar-nav flex-fill d-lg-flex justify-content-between align-items-center">
+              <div class="flex-grow-1 text-center">
+
+              </div>
+
+              <li class="" *ngIf="!isLoggedin">
+                <div class="container h-100">
+                  <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar" style="width:384px;" >
+                      <input class="search_input" [(ngModel)]="searchText" (search)="getSearchResults()" type="search" placeholder="Search...">
+                      <a class="search_icon" (click)="getSearchResults()" style="cursor: pointer;">
+                        <i class="fa fa-search"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="" *ngIf="isLoggedin">
+                <div class="container h-100 searchBox">
+                  <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar" style="width: 384px;" >
+                      <input class="search_input" [(ngModel)]="searchText" (search)="getSearchResults()" type="search" placeholder="Search...">
+                      <a class="search_icon" (click)="getSearchResults()" style="cursor: pointer;">
+                        <div class="s_icon">
+                        <i class="fa fa-search fa-icon"></i></div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      </div>
+  </div>
+      <div>
+        <nav class="navbar navbar-expand-lg navbar-light navbar1"style="background-color: white;">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-dark justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Regulatory Guidelines</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">GMP Training</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Business</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Videos</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+
+</header> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News</title>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="main-panel">
+      <header id="header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="d-flex justify-content-between align-items-center navbar-top">
+              <ul class="navbar-left">
+                <li>{{currentDate | date}}</li>
+                <li>{{ location }}: {{ temperature }}&deg;C</li>
+              </ul>
+              <div>
+                <a class="navbar-brand" href="#"><img src="assets/images/FINAL LOGO.jpg" alt="" id="header_logo" /></a>
+              </div>
+              <div class="d-flex">
+                <ul class="navbar-right">
+                </ul>
+                <ul class="social-media">
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-instagram"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-youtube"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-linkedin"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="mdi mdi-twitter"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="navbar-bottom-menu">
+              <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="navbar-collapse justify-content-center collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav d-lg-flex justify-content-between align-items-center">
+                  <li>
+                    <button class="navbar-close">
+                      <i class="mdi mdi-close"></i>
+                    </button>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <a class="nav-link" routerLink="">Home</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="about-us">About&nbsp;Us</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="news">News</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="regulatory-guidelines">Regulatory&nbsp;Guidelines</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="products">Products</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="business">Business</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="videos">Videos</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="login">Login</a>
+                  </li>
+                  <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="signup">SignUp</a>
+                  </li>
+                  <li>
+                    <a class=""></a>
+                  <li></li> 
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+
+        </div>
+      </header>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!--<header>
+  <div class="container-scroller">
+  <div id ="top-header">
+    <div id="logo">
+      <img src="/assets/images/FINAL LOGO.jpg">
+    </div>
+    <br>
+    <br>
+    <br>
+    <nav>
+
+      <div id="menu">
+        <ul>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" routerLink="">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="about-us">About Us</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="news">News</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="regulatory-guidelines">Regulatory Guidelines</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="products">Products</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="business">Business</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="videos">Videos</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="login-form">Login</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="signup-form">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="header-image-menu"></div>
+  </div>
+  </div>
+ 
+</header>-->

@@ -1,0 +1,42 @@
+<div class="container">
+    <h1><b>Entertainment News</b></h1>
+    <p>Stay updated with the latest entertainment news.</p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="news-container">
+                <div class="news-item" *ngFor="let news of entertainmentNews; let last = last">
+                    <div class="news-wrapper">
+                        <img [src]="news.image" alt="News Image" class="news-image">
+                        <div class="news-content-wrapper">
+                            <div class="news-details">
+                                <h2 class="news-title"><b>{{ news.title }}</b></h2>
+                                <p class="news-content">
+                                    ==> {{ news.content }}
+                                </p>
+                                <div class="news-link">
+                                    <a href="{{ news.link }}"><b>Full Coverage 📰</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer" *ngIf="!last"></div>
+                </div>
+            </div>
+            <br>
+            <div class="button">
+                <div class="col-md-6">
+                    <a class="btn btn-primary" routerLink="/news">Go to <u>Main News Page</u></a>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <a class="btn btn-primary" routerLink="/education-news">Go back to <u>Education News Page</u></a>
+                </div>
+                <br>
+                <div class="col-md-6">
+                    <a class="btn btn-primary" routerLink="/foreign-news">Go to <u>Foreign Affairs Page</u></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
